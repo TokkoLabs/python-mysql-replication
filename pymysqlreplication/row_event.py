@@ -4,6 +4,7 @@ import struct
 import decimal
 import datetime
 import json
+import logging
 
 from pymysql.charset import charset_by_name
 
@@ -14,6 +15,8 @@ from .constants import BINLOG
 from .column import Column
 from .table import Table
 from .bitmap import BitCount, BitGet
+
+logger = logging.getLogger(__name__)
 
 class RowsEvent(BinLogEvent):
     def __init__(self, from_packet, event_size, table_map, ctl_connection, **kwargs):
