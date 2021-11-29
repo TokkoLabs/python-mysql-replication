@@ -34,14 +34,14 @@ class TestCommand(Command):
         unittest.main(tests, argv=sys.argv[:1])
 
 
-version = "0.27"
+version = "0.1"
 
 setup(
-    name="mysql-replication",
+    name="tokko-mysql-replication-custom",
     version=version,
-    url="https://github.com/noplay/python-mysql-replication",
-    author="Julien Duponchelle",
-    author_email="julien@duponchelle.info",
+    url="https://github.com/TokkoLabs/python-mysql-replication.git",
+    author="Tokko Development Team",
+    author_email="tokko-desarrollo@navent.com",
     description=("Pure Python Implementation of MySQL replication protocol "
                  "build on top of PyMYSQL."),
     license="Apache 2",
@@ -51,4 +51,6 @@ setup(
     cmdclass={"test": TestCommand},
     extras_require={'test': tests_require},
     install_requires=['pymysql>=0.10'],
+    long_description_content_type="text/markdown",
+    long_description="file:README.MD",
 )
