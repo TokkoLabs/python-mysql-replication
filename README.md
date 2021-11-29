@@ -1,6 +1,24 @@
 
 Forkeado desde versión 0.27 para solucionar problema de decode.
 
+Cambio en row_event.py
+``` 
+def __read_string(self, size, column):
+        """
+        This method ignores the character it cannot decode.
+        """
+        string = self.packet.read_length_coded_pascal_string(size)
+        if column.character_set_name is not None:
+            encoding = self.charset_to_encoding(column.character_set_name)
+            try:
+                string = string.decode(encoding)
+            except ValueError:
+                string = string.decode(encoding, 'ignore')
+                logger.info(f'Decoding failed, string :{string}')
+        return string
+
+```
+
 
 python-mysql-replication
 ========================
