@@ -1,3 +1,7 @@
+
+Forkeado desde versión 0.27 para solucionar problema de decode.
+
+
 python-mysql-replication
 ========================
 
